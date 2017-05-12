@@ -4,29 +4,26 @@
 CREATE DATABASE IF NOT EXISTS borrowMine_db;
 USE borrowMine_db;
 
-/* Seller Table*/
-CREATE TABLE IF NOT EXISTS seller_tbl(
+CREATE TABLE IF NOT EXISTS user_tbl(
 	id int NOT NULL AUTO_INCREMENT,
-	seller_name varchar(50) NOT NULL,
-	rental_name varchar(100) NOT NULL,
-	rental_description varchar(500) NOT NULL, 
-	rental_start timestamp,
-	rental_end timestamp,
-	rental_cost int NOT NULL 
-	PRIMARY KEY (id)
-
-/*Borrower Table*/
-CREATE TABLE IF NOT EXISTS borrower_tbl(
-	id int NOT NULL AUTO_INCREMENT,
-	borrower_name varchar(50) NOT NULL,
-	borrower_email varchar(50) NOT NULL,
-	borrower_phone integer (10) NOT NULL,  
-	borrower_start timestamp,
-	borrower_end timestamp,
+	user_name varchar(50) NOT NULL,
+	user_email varchar(100) NOT NULL,
 	PRIMARY KEY (id)
 );
 
-/*create listing table and user table(name email phone user id)
+CREATE TABLE IF NOT EXISTS post_tbl(
+	id int NOT NULL AUTO_INCREMENT,
+	description varchar(50) NOT NULL,
+	price int(10) NOT NULL, 
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS rental_tbl(
+	id int NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id)
+);
 
 
-owned by user to fetch all posts for a certain user
+
+
+/*owned by user to fetch all posts for a certain user

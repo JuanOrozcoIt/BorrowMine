@@ -1,21 +1,26 @@
 //Put Routes here//
 
+
+var Router = require("express").Router;
+var router = new Router()
+var connection = require("../config/connection.js");
 //use sequalize instead of connection.query
 
 //This get request is rendering the seller_name object from the seller-tbl
-app.get("/", function(req, res) {
-  connection.query("SELECT * FROM seller_tbl;", function(err, data) {
+router.get("/", function(req, res) {
+
+  connection.query("SELECT * FROM user_tbl;", function(err, data) {
     if (err) {
       throw err;
     }
-    res.render("index", { seller_name: data });
+    res.render("index", { user_name: data });
   });
 });
 
 //This post request is adding the seller name into the seller_name object in the seller_tbl, 
 //and then redirecting the browser back to the URL
-app.post("/", function(req, res) {
-  connection.query("INSERT INTO seller_tbl (seller_name) VALUES (?)", [req.body.seller_name], function(err, result) {
+router.post("/", function(req, res) {
+  connection.query("INSERT INTO post_tbl (description) VALUES (?)", [req.body.description], function(err, result) {
     if (err) {
       throw err;
     }
@@ -25,8 +30,8 @@ app.post("/", function(req, res) {
 
 
 //This delete request is deleting the row in the seller_tbl where the id is equal to the URL parameter
-app.delete("/:id", function(req, res) {
-  connection.query("DELETE FROM seller_tbl WHERE id = ?", [req.params.id], function(err, result) {
+router.delete("/:id", function(req, res) {
+  connection.query("DELETE FROM post_tbl WHERE id = ?", [req.params.id], function(err, result) {
     if (err) {
       throw err;
     }
@@ -36,9 +41,9 @@ app.delete("/:id", function(req, res) {
 
 
 
-app.put("/", function(req, res) {
-  connection.query("UPDATE seller_tbl SET seller_name = ? WHERE id = ?", [
-    req.body.seller_name, req.body.id
+router.put("/", function(req, res) {
+  connection.query("UPDATE user_tbl SET user_name = ? WHERE id = ?", [
+    req.body.user_name, req.body.id
   ], function(err, result) {
     if (err) {
       throw err;
@@ -46,3 +51,6 @@ app.put("/", function(req, res) {
     res.redirect("/");
   });
 });
+
+
+module.exports = router
