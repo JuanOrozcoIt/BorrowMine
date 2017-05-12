@@ -1,0 +1,20 @@
+/* Main Search Bar page*/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		<title>Search for rentals</title>
+	</head>
+	<body>
+		{{{ body }}}
+
+
+/* form for search*/ idk if this goes here
+		<form action="/" method="GET">
+			<textarea type="text" name="search_term"></textarea>
+			<button type="submit">Search</button>
+		</form>
+	</body>
+</html>
