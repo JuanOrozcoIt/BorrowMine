@@ -1,0 +1,27 @@
+{
+  "name": "borrow_mine_app",
+  "version": "1.0.0",
+  "description": "BorrowMine is a portal that user offer items to your neighbors that you seldom use and allows you to rent items that you only need for a short term. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanOrozcoIt/BorrowMine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanOrozcoIt/BorrowMine/issues"
+  },
+  "homepage": "https://github.com/JuanOrozcoIt/BorrowMine#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.8",
+    "mysql": "^2.13.0",
+    "path": "^0.12.7"
+  }
+}
