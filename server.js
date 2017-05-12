@@ -6,7 +6,7 @@ var path = require('path');
 
 var app = express();
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
 //Serve static content for the app from the "public" directory in the application directory.
 //boilerplate code
@@ -21,14 +21,23 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method')) //do I need this?//
 
 //Express handlebars route to main.handlebars//
-app.engine('express-handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 
-app.set('views', path.join(__dirname, 'views')); // ?
+
+app.set('views', path.join(__dirname, 'views/layouts')); // ?
 app.set('view engine', 'handlebars');
+
 
 // Import routes and give the server access to them.
 var routes = require('./controllers/borrow_controller.js');
 app.use('/', routes);
 
+// app.get('/', function (req, res) {
+//     res.render('index');
+// });
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
 
 app.listen(PORT);

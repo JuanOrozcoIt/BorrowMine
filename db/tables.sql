@@ -1,6 +1,6 @@
 /*Example mysql data*/
 
-insert into seller_tbl(seller_name) values ('Juan');
-insert into seller_tbl(seller_name) values ('Rachel');
-insert into seller_tbl(seller_name) values ('Felipe');
-insert into seller_tbl(seller_name) values ('Chelsea');
+insert into user_tbl(user_name) values ('Juan');
+insert into user_tbl(user_name) values ('Rachel');
+insert into user_tbl(user_name) values ('Felipe');
+insert into user_tbl(user_name) values ('Chelsea');
