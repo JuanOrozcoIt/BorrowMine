@@ -29,8 +29,8 @@ app.set('view engine', 'handlebars');
 
 
 // Import routes and give the server access to them.
-var routes = require('./controllers/borrow_controller.js');
-app.use('/', routes);
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // app.get('/', function (req, res) {
 //     res.render('index');
