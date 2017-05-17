@@ -10,7 +10,7 @@ var PORT = process.env.PORT || 3001;
 
 //Serve static content for the app from the "public" directory in the application directory.
 //boilerplate code
-app.use(express.static(process.cwd() + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 //Body Parser//
 app.use(bodyParser.urlencoded({
