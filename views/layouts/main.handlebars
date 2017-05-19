@@ -130,7 +130,7 @@
 
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Listings</h2>
+                    <h2 class="section-heading">Rentals</h2>
                     <h3 class="section-subheading text-muted">List of neighbors lending and renting.</h3>
                 </div>
             </div>
@@ -153,7 +153,10 @@
                             <ul>
                               {{#each rentalPost}}
                                 <li>
-                                   <h4>Rental Name: {{this.rental_name}}</h4>
+                                   <h4>Rental Name: 
+
+                                   {{this.rental_name}}
+                                   </h4>
                                    <p class="text-muted">Description: {{this.description}}</p>
                                 </li>
                               {{/each}}
@@ -162,7 +165,7 @@
                     </div>
                 </div>
 
-                <!--Listing 2
+                {{#each rentalPost}}
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
@@ -173,12 +176,12 @@
                         <img src="public/img/portfolio/startup-framework.png" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Startup Framework</h4>
-                        <p class="text-muted">Website Design</p>
+                        <h4>{{this.rental_name}}</h4>
+                        <p class="text-muted">{{this.description}}</p>
                     </div>
                 </div>
-
-                 Listing 3
+                {{/each}}
+                <!--Listing 2
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
