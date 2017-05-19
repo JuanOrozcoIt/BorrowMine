@@ -24,12 +24,25 @@ $("#post-submit").on("click", function(event) {
   $("#rental_name").val("");
   $("#description").val("");
 });
+//======================================================================
+
+ // This function grabs rental postings from the database and updates the view
+  function () {
+    $.get("/api/all", function(data) {
+      console.log("Rental Posts", data);
+      newRental = data;
+      initializeRows();
+    });
+  }
+
 
 //=================================================================
 // Make a get request to our api route that will return every Rental Listing
 $.get("/api/all", function(data) {
   // For each listing that our server sends us back
   for (var i = 0; i < data.length; i++) {
+
+    console.log("creating listing is working");
     // Create a parent div to hold listing data
     var allListings = $("<div>");
     // Add a class to this div: 'listing'
@@ -39,9 +52,10 @@ $.get("/api/all", function(data) {
     // Append the listing to the rental listings section
     $("#").append(allListings);
     // Now  we add our listing data to the rental listing we just placed on the page
-    $("#rental_listing-" + i).append("<h2>" + (i + 1) + ". " + data[i].rental_name + "</h2>");
+    
     $("#rental_listing-" + i).append("<h3>User Name: " + data[i].user_name + "</h4>");
-    $("#rental_listing-" + i).append("<h3>email: " + data[i].user_email + "</h4>");
+    $("#rental_listing-" + i).append("<h3>Email: " + data[i].user_email + "</h4>");
+    $("#rental_listing-" + i).append("<h2>" + (i + 1) + ". " + data[i].rental_name + "</h2>");
     $("#rental_listing-" + i).append("<h3>Description: " + data[i].description + "</h4>");
   }
 });

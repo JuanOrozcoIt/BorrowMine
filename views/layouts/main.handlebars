@@ -148,12 +148,21 @@
                         <img src="public/img/portfolio/roundicons.png" class="img-responsive" alt="">
                     </a>
                     <div id="post-area" class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
+
+
+                            <ul>
+                              {{#each rentalPost}}
+                                <li>
+                                   <h4>Rental Name: {{this.rental_name}}</h4>
+                                   <p class="text-muted">Description: {{this.description}}</p>
+                                </li>
+                              {{/each}}
+                            </ul>
+
                     </div>
                 </div>
 
-                <!--Listing 2-->
+                <!--Listing 2
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
@@ -169,7 +178,7 @@
                     </div>
                 </div>
 
-                 <!--Listing 3-->
+                 Listing 3
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
@@ -185,7 +194,7 @@
                     </div>
                 </div>
 
-                 <!--Listing 4-->
+                 Listing 4
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
@@ -201,7 +210,7 @@
                     </div>
                 </div>
 
-                 <!--Listing 5-->
+                 Listing 5
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
@@ -217,7 +226,7 @@
                     </div>
                 </div>
 
-                 <!--Listing 6-->
+                 Listing 6
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
@@ -232,7 +241,7 @@
                         <p class="text-muted">Website Design</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 
