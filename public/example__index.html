@@ -79,6 +79,8 @@
                 <div class="intro-lead-in">BorrowMine</div>
                 <div class="intro-heading">Put a hole in your wall not your wallet</div>
                 <a href="#services" class="page-scroll btn btn-xl">Sign In</a>
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
                 
 
             </div>
@@ -299,7 +301,7 @@
                     <div class="team-member">
                         <img class="mx-auto rounded-circle" src="img/team/2.jpg" alt="">
                         <h4>Juan Orozco</h4>
-                        <p class="text-muted">Backend Desinger</p>
+                        <p class="text-muted">Backend Designer</p>
                         <ul class="list-inline social-buttons">
                             <li class="list-inline-item">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -579,6 +581,68 @@
 
     <!-- Theme JavaScript -->
     <script src="js/agency.min.js"></script>
+
+    
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    console.log('checkLoginState')
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    console.log('fbAsyncInit')
+    FB.init({
+      appId      : '1030545903748147',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+  (function(d, s, id){
+    console.log('iife')
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "http://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
 
 </body>
 
