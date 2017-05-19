@@ -1,5 +1,4 @@
-
-// Set up MySQL connection.
+/*// Set up MySQL connection.
 var mysql = require("mysql");
 var connection = mysql.createConnection({
   port: 3306,
@@ -24,4 +23,19 @@ connection.connect(function(err) {
 });
 
 // Export connection for our ORM to use.
-module.exports = connection;
+module.exports = connection;*/
+
+// Dependencies
+var Sequelize = require("sequelize");
+// Creates mySQL connection using Sequelize
+var sequelize = new Sequelize("borrowMine_db", "root", "", {
+  host: "localhost",
+  dialect: "mysql",
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+});
+// Exports the connection for other files to use
+module.exports = sequelize;
