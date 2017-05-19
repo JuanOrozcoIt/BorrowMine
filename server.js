@@ -29,8 +29,13 @@ app.set('view engine', 'handlebars');
 
 
 // Import routes and give the server access to them.
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+var routes = {
+	html: require("./routes/html-routes.js"),
+	api: require("./routes/api-routes.js")
+};
+
+app.use(routes.html);
+app.use(routes.api);
 
 // app.get('/', function (req, res) {
 //     res.render('index');

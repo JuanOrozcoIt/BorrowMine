@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "borrowMine_db",
+    "database": "borrowMine_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
-    "database": "borrowMine_db",
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

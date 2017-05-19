@@ -1,59 +1,39 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-// Dependencies
-// =============================================================
-// Requiring our models
-var db = require("../models");
-// Routes
-// =============================================================
-module.exports = function(app) {
-  // GET route for getting all of the todos
-  app.get("/api/todos", function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    db.Todo.findAll({}).then(function(dbTodo) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(dbTodo);
+//Put Routes here//
+var Router = require("express").Router;
+var router = new Router();
+var connection = require("../config/connection.js");
+//use sequalize instead of connection.query
+
+var post = require("../models/borrow.js");
+
+// GET Route for getting all of the rental posts
+  router.get("/api/all", function(req, res) {
+    rentalPost.findAll({})
+    .then(function(results) {
+      res.json(results);
     });
   });
-  // POST route for saving a new todo
-  app.post("/api/todos", function(req, res) {
-    // create takes an argument of an object describing the item we want to
-    // insert into our table. In this case we just we pass in an object with a text
-    // and complete property
-    db.Todo.create({
-      text: req.body.text,
-      complete: req.body.complete
-    }).then(function(dbTodo) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbTodo);
+
+
+  // POST route for saving a new rental post
+  //This post request is adding the seller name into the seller_name object in the seller_tbl, 
+//and then redirecting the browser back to the URL
+//THIS IS RACHEL AND MICHEALS STUFF
+ router.post("/api/new", function(req, res) {
+    console.log("Post Data:");
+    console.log(req.body);
+
+    rentalPost.create({
+      user_name: req.body.user_name,
+      description: req.body.description,
+      created_at: req.body.created_at
+    })
+    .then(function(results) {
+      // `results` here would be the newly created rental post
+      res.end();
     });
   });
-  // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-  // req.params.id
-  app.delete("/api/todos/:id", function(req, res) {
-    // We just have to specify which todo we want to destroy with "where"
-    db.Todo.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
-    });
-  });
-  // PUT route for updating todos. We can get the updated todo data from req.body
-  app.put("/api/todos", function(req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.Todo.update({
-      text: req.body.text,
-      complete: req.body.complete
-    }, {
-      where: {
-        id: req.body.id
-      }
-    }).then(function(dbTodo) {
-      res.json(dbTodo);
-    });
-  });
-};
+
+
+
+module.exports = router
