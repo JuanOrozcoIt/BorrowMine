@@ -4,7 +4,7 @@ var router = new Router();
 var connection = require("../config/connection.js");
 //use sequalize instead of connection.query
 
-var post = require("../models/borrow.js");
+var rentalPost = require("../models/borrow.js");
 
 // GET Route for getting all of the rental posts
   router.get("/api/all", function(req, res) {
@@ -30,7 +30,9 @@ var post = require("../models/borrow.js");
     })
     .then(function(results) {
       // `results` here would be the newly created rental post
-      res.end();
+      res.send({
+        status: "success"
+      });
     });
   });
 
