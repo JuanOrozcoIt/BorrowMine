@@ -12,30 +12,30 @@ $(function() {
             // get values from FORM
             var name = $("input#name").val();
             var email = $("input#email").val();
-            var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
+            var rental_name = $("input#rental_name").val();
+            var description = $("textarea#description").val();
             var firstName = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
+            // Check for white space in name for Success/Fail description
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "././mail/contact_me.php",
+                url: "http://localhost:3000/api/new",
                 type: "POST",
                 data: {
                     name: name,
-                    phone: phone,
+                    rental_name: rental_name,
                     email: email,
-                    message: message
+                    description: description
                 },
                 cache: false,
                 success: function() {
-                    // Success message
+                    // Success description
                     $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>Your description has been sent. </strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
@@ -43,7 +43,7 @@ $(function() {
                     $('#contactForm').trigger("reset");
                 },
                 error: function() {
-                    // Fail message
+                    // Fail description
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
