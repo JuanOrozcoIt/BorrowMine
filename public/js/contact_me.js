@@ -13,6 +13,7 @@ $(function() {
             var name = $("input#name").val();
             var email = $("input#email").val();
             var rental_name = $("input#rental_name").val();
+            var price = $("input#price").val();
             var description = $("textarea#description").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail description
@@ -26,6 +27,7 @@ $(function() {
                     name: name,
                     rental_name: rental_name,
                     email: email,
+                    price: price, 
                     description: description
                 },
                 cache: false,

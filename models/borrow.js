@@ -6,14 +6,17 @@ var rentalPost = sequelize.define("post_tbl", {
   user_name: {
     type: Sequelize.STRING
   },
-  description: {
-    type: Sequelize.STRING //change to TEXT??
-  },
   user_email: {
     type: Sequelize.STRING
   },
   rental_name: {
     type: Sequelize.STRING
+  },
+  price: {
+    type: Sequelize.STRING
+  },
+   description: {
+    type: Sequelize.TEXT //change to TEXT??
   },
   created_at: {
     type: Sequelize.DATE
