@@ -27,6 +27,39 @@ $("#post-submit").on("click", function(event) {
   $("#description").val("");
 });
 //======================================================================
+//Attempt to get the contact feature to work
+
+/* The code in borrowmine.js handles what happens when the user clicks the "SUBMIT RENTAL" button.
+// When user clicks add-btn
+$("#contact-submit").on("click", function(event) {
+  event.preventDefault();
+
+  // Make a newRental object
+  var newEmail = {  
+    user_email: $("#email").val().trim(),
+  };
+
+  // Send an AJAX POST-request with jQuery
+  $.post("/api/contact", newEmail)
+    // On success, run the following code
+    .done(function(data) {
+      // Log the data we found
+      console.log(data);
+    });
+  // Empty each input box by replacing the value with an empty string
+  $("#name").val("");
+  $("#email").val("");
+  $("#rental_name").val("");
+  $("#price").val("");
+  $("#description").val("");
+});
+//END Contact feature*/
+
+
+
+
+
+
 
  // This function grabs rental postings from the database and updates the view
   function () {

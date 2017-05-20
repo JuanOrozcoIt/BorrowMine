@@ -353,7 +353,12 @@
                                 
                                 <p>{{this.description}}</p>
                         
-                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Contact {{this.user_name}}</button>
+                            
+
+                                <form action="https://formspree.io/{{this.user_email}}" method="POST">
+                                    <textarea type="submit" class="form-control value="Contact {{this.user_name}}" placeholder="Message {{this.user_name}} "></textarea>
+                                    <input type="submit" class="btn btn-xl" value="Contact {{this.user_name}}">
+                                </form>
                             </div>
                         </div>
                     </div>
