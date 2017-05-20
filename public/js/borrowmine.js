@@ -8,6 +8,7 @@ $("#post-submit").on("click", function(event) {
     user_name: $("#name").val().trim(),
     user_email: $("#email").val().trim(),
     rental_name: $("#rental_name").val().trim(),
+    price: $("#price").val().trim(),
     description: $("#description").val().trim()
   };
 
@@ -22,6 +23,7 @@ $("#post-submit").on("click", function(event) {
   $("#name").val("");
   $("#email").val("");
   $("#rental_name").val("");
+  $("#price").val("");
   $("#description").val("");
 });
 //======================================================================
@@ -56,6 +58,7 @@ $.get("/api/all", function(data) {
     $("#rental_listing-" + i).append("<h3>User Name: " + data[i].user_name + "</h4>");
     $("#rental_listing-" + i).append("<h3>Email: " + data[i].user_email + "</h4>");
     $("#rental_listing-" + i).append("<h2>" + (i + 1) + ". " + data[i].rental_name + "</h2>");
+    $("#rental_listing-" + i).append("<h2>" + (i + 1) + ". " + data[i].price + "</h2>");
     $("#rental_listing-" + i).append("<h3>Description: " + data[i].description + "</h4>");
   }
 });

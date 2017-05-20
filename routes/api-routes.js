@@ -36,6 +36,7 @@ var rentalPost = require("../models/borrow.js");
       user_name: req.body.name,
       user_email: req.body.email,
       rental_name: req.body.rental_name,
+      price: req.body.price,
       description: req.body.description,
       created_at: date
     })
