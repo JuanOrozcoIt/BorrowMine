@@ -135,7 +135,32 @@
                 </div>
             </div>
 
-            <!--Listing 1-->
+        
+
+               {{#each rentalPost}}
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1"  class="portfolio-link" data-toggle="modal">
+
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+
+                        <img src="public/img/portfolio/roundicons.png" class="img-responsive" alt="">
+                    </a>
+
+                    <div class="portfolio-caption">
+                        <h4>{{this.rental_name}}</h4>
+                        <p class="text-muted">{{this.price}}</p>
+                    </div>
+                </div>
+                {{/each}}
+
+                </div>
+    </section>
+
+                <!--Listing 1
 
             <div class="row">
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -163,24 +188,7 @@
                             </ul>
 
                     </div>
-                </div>
-
-                {{#each rentalPost}}
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="public/img/portfolio/startup-framework.png" class="img-responsive" alt="">
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>{{this.rental_name}}</h4>
-                        <p class="text-muted">{{this.description}}</p>
-                    </div>
-                </div>
-                {{/each}}
+                </div>-->
                 <!--Listing 2
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
@@ -272,6 +280,10 @@
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" id="rental_name" type="tel" placeholder="Rental Name *" required data-validation-required-message="Please enter the rental name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="price" type="tel" placeholder="Price *" required data-validation-required-message="How much is this rental.">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -413,6 +425,7 @@
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
     <!-- Portfolio Modal 1 -->
+
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

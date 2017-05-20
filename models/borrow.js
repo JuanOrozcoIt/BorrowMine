@@ -12,6 +12,9 @@ var rentalPost = sequelize.define("post_tbl", {
   rental_name: {
     type: Sequelize.STRING
   },
+  price: {
+    type: Sequelize.STRING
+  },
    description: {
     type: Sequelize.STRING //change to TEXT??
   },
